@@ -370,8 +370,6 @@
                 handwriting-glow 3s ease-in-out 3.2s infinite;
     }
 
-    /* Pequeño trazo ornamental */
-
     .handwriting-ornament {
       display:block;
       width:min(260px,75%);
@@ -461,7 +459,7 @@
       animation:verse-fade 3.6s ease-in-out infinite;
     }
 
-    /* UBICACIÓN: SOLO EL BORDE ES DORADO */
+    /* UBICACIÓN */
 
     .details {
       display:grid;
@@ -476,8 +474,6 @@
       padding:27px 18px;
       border:2px solid transparent;
       border-radius:17px;
-
-      /* Interior blanco uniforme y borde animado */
       background:
         linear-gradient(#fffefa,#fffefa) padding-box,
         conic-gradient(
@@ -492,7 +488,6 @@
           #fff2c6 325deg,
           #c89c43 360deg
         ) border-box;
-
       box-shadow:0 10px 22px rgba(25,61,88,.08);
       animation:
         border-rotate 7s linear infinite,
@@ -507,9 +502,7 @@
     }
 
     @keyframes border-rotate {
-      to {
-        --border-angle:360deg;
-      }
+      to { --border-angle:360deg; }
     }
 
     @keyframes border-aura {
@@ -578,12 +571,7 @@
       margin:0;
       background:
         radial-gradient(ellipse at 50% 38%,rgba(94,145,174,.4),transparent 58%),
-        linear-gradient(
-          155deg,
-          #244e70 0%,
-          #173654 48%,
-          #214b6b 100%
-        );
+        linear-gradient(155deg,#244e70 0%,#173654 48%,#214b6b 100%);
     }
 
     .gift:before {
@@ -708,12 +696,7 @@
       width:75%;
       height:1px;
       margin:10px auto 19px;
-      background:linear-gradient(
-        to right,
-        transparent,
-        rgba(244,209,126,.85),
-        transparent
-      );
+      background:linear-gradient(to right,transparent,rgba(244,209,126,.85),transparent);
     }
 
     .gift-message {
@@ -777,16 +760,12 @@
         transform:translate3d(0,-50px,0) rotate(-10deg);
         opacity:0;
       }
-      12% {
-        opacity:.65;
-      }
+      12% { opacity:.65; }
       50% {
         transform:translate3d(22px,330px,0) rotate(160deg);
         opacity:.75;
       }
-      88% {
-        opacity:.5;
-      }
+      88% { opacity:.5; }
       100% {
         transform:translate3d(-15px,850px,0) rotate(340deg);
         opacity:0;
@@ -849,13 +828,75 @@
       font-weight:600;
     }
 
+    /* CONTADOR REGRESIVO */
+
+    .countdown-section {
+      padding:48px 20px 53px;
+      background:
+        linear-gradient(180deg,rgba(232,242,244,.9),rgba(255,252,242,.94)),
+        url('assets/fondo-hojas-azules-acuarela.jpg') center/cover;
+    }
+
+    .countdown-title {
+      margin:0 0 7px;
+      color:var(--navy);
+      font:600 clamp(2.5rem,8vw,3.2rem)/1 'Cormorant Garamond',serif;
+    }
+
+    .countdown-subtitle {
+      margin:0 auto 23px;
+      color:#657887;
+      font:500 .78rem/1.6 Montserrat,sans-serif;
+    }
+
+    .countdown {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:9px;
+      max-width:440px;
+      margin:0 auto;
+    }
+
+    .countdown-item {
+      padding:14px 5px 12px;
+      border:1px solid rgba(200,156,67,.65);
+      border-radius:13px;
+      background:rgba(255,255,255,.76);
+      box-shadow:0 5px 15px rgba(23,54,84,.07);
+    }
+
+    .countdown-number {
+      display:block;
+      color:var(--blue);
+      font:600 clamp(1.8rem,7vw,2.65rem)/1 'Cormorant Garamond',serif;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .countdown-label {
+      display:block;
+      margin-top:6px;
+      color:#788995;
+      font-size:.53rem;
+      font-weight:700;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    .countdown-finished {
+      margin:17px 0 0;
+      color:var(--navy);
+      font:600 1.1rem 'Cormorant Garamond',serif;
+    }
+
     footer {
       position:relative;
-      padding:38px 20px 48px;
+      padding:24px 16px 30px;
       background:#e0ebed;
       color:#687985;
-      font-size:.7rem;
+      font-size:clamp(.55rem,2.6vw,.7rem);
+      line-height:1.8;
       text-align:center;
+      overflow-wrap:anywhere;
     }
 
     /* ANIMACIONES GENERALES */
@@ -905,15 +946,11 @@
     }
 
     @keyframes drift {
-      50% {
-        transform:translateY(-8px) rotate(2deg);
-      }
+      50% { transform:translateY(-8px) rotate(2deg); }
     }
 
     @keyframes bounce {
-      50% {
-        transform:translateY(5px);
-      }
+      50% { transform:translateY(5px); }
     }
 
     @keyframes date-pop {
@@ -942,12 +979,8 @@
     }
 
     @keyframes envelope-float {
-      0%,100% {
-        transform:translateY(0) rotate(2deg) scale(1);
-      }
-      50% {
-        transform:translateY(-12px) rotate(-4deg) scale(1.06);
-      }
+      0%,100% { transform:translateY(0) rotate(2deg) scale(1); }
+      50% { transform:translateY(-12px) rotate(-4deg) scale(1.06); }
     }
 
     @keyframes heart-beat {
@@ -1028,6 +1061,26 @@
       .handwritten-title {
         font-size:3.15rem;
       }
+
+      /* Ajuste de la frase final para móviles */
+      footer {
+        padding:22px 24px 27px;
+        font-size:.57rem;
+        letter-spacing:.015em;
+      }
+
+      .countdown {
+        gap:6px;
+      }
+
+      .countdown-item {
+        padding:12px 3px 10px;
+      }
+
+      .countdown-label {
+        font-size:.48rem;
+        letter-spacing:.06em;
+      }
     }
 
     @media (prefers-reduced-motion:reduce) {
@@ -1054,6 +1107,11 @@
 
       .handwriting-ornament .ornament-star {
         opacity:1;
+      }
+
+      .reveal {
+        opacity:1;
+        transform:none;
       }
     }
   </style>
@@ -1272,7 +1330,49 @@
 
       </form>
 
-      <p id="form-result"></p>
+      <p id="form-result" aria-live="polite"></p>
+
+    </section>
+
+    <!-- CONTADOR REGRESIVO -->
+
+    <section class="countdown-section">
+
+      <p class="kicker">La cuenta regresiva ha comenzado</p>
+
+      <h2 class="countdown-title">¡Nos vemos pronto!</h2>
+
+      <p class="countdown-subtitle">
+        Cada vez falta menos para compartir este día tan especial.
+      </p>
+
+      <div class="countdown" id="countdown" aria-label="Tiempo restante para la Primera Comunión">
+
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">00</span>
+          <span class="countdown-label">Días</span>
+        </div>
+
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">00</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">00</span>
+          <span class="countdown-label">Minutos</span>
+        </div>
+
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">00</span>
+          <span class="countdown-label">Segundos</span>
+        </div>
+
+      </div>
+
+      <p class="countdown-finished" id="countdown-finished" hidden>
+        ¡Llegó el gran día! Qué alegría compartirlo contigo.
+      </p>
 
     </section>
 
@@ -1405,6 +1505,55 @@
       }
 
     });
+
+
+    /* CONTADOR REGRESIVO */
+
+    // 6 de diciembre de 2026, 2:30 p. m., hora de Colombia (UTC-5).
+    const eventDate = new Date('2026-12-06T14:30:00-05:00').getTime();
+
+    const countdownElements = {
+      days:document.getElementById('days'),
+      hours:document.getElementById('hours'),
+      minutes:document.getElementById('minutes'),
+      seconds:document.getElementById('seconds')
+    };
+
+    const countdownFinished = document.getElementById('countdown-finished');
+    const countdownContainer = document.getElementById('countdown');
+
+    function updateCountdown() {
+
+      const now = Date.now();
+      const difference = eventDate - now;
+
+      if (difference <= 0) {
+
+        countdownElements.days.textContent = '00';
+        countdownElements.hours.textContent = '00';
+        countdownElements.minutes.textContent = '00';
+        countdownElements.seconds.textContent = '00';
+
+        countdownFinished.hidden = false;
+        countdownContainer.hidden = true;
+
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / (1000 * 60)) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+
+      countdownElements.days.textContent = String(days).padStart(2,'0');
+      countdownElements.hours.textContent = String(hours).padStart(2,'0');
+      countdownElements.minutes.textContent = String(minutes).padStart(2,'0');
+      countdownElements.seconds.textContent = String(seconds).padStart(2,'0');
+
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown,1000);
 
 
     /* CARRUSEL DE FOTOGRAFÍAS */
